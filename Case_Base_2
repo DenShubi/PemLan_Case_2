@@ -1,0 +1,75 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList namas = new ArrayList();
+        ArrayList nims = new ArrayList();
+        ArrayList alamats = new ArrayList();
+
+        Scanner uwu = new Scanner(System.in);
+        boolean next = true;
+        while (next) {
+            System.out.print("Masukkan NIM: ");
+            String nim = uwu.nextLine();
+            nims.add(nim);
+
+            System.out.print("Masukkan Nama: ");
+            String nama = uwu.nextLine();
+            namas.add(nama);
+
+            System.out.print("Masukkan Alamat: ");
+            String alamat = uwu.nextLine();
+            alamats.add(alamat);
+
+            Enkaps mahasiswa = new Enkaps(nim, nama, alamat);
+
+            System.out.print("Tambah Lagi?: ");
+            String tambah = uwu.nextLine();
+
+            if (tambah.equals("t")) {
+                next = false;
+            }
+        }
+        System.out.println("============================");
+        for (int i = 0; i < nims.size(); i++) {
+            System.out.println(nims.get(i) + " | " + namas.get(i) + " | " + alamats.get(i));
+        }
+    }
+}
+
+class Enkaps {
+    private String nim;
+    private String nama;
+    private String alamat;
+
+    public Enkaps(String nim, String nama, String alamat) {
+        this.nim = nim;
+        this.nama = nama;
+        this.alamat = alamat;
+    }
+
+    public String getNim() {
+        return nim;
+    }
+
+    public void setNim(String nim) {
+        this.nim = nim;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+}
